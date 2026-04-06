@@ -3,7 +3,7 @@ import config from "../config/config.js"
 
 
 const imagekit = new ImageKit({
-    privateKey: config.IMAGEKIT_PRIVATE_KEY,
+    privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
 })
 
 async function uploadFile(buffer) {
