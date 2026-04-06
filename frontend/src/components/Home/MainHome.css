@@ -1,0 +1,154 @@
+body {
+  background-color: white;
+}
+
+.Home-parent {
+  width: 100%;
+  height: 89vh;
+  display: flex;
+}
+
+.main-left-div {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-div {
+  border: 1px solid white;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.main-left-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT */
+
+.main-right-div {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginDiv {
+  width: 80%;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+select {
+  height: 35px;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+input {
+  border: 1px solid black;
+  height: 35px;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button {
+  border: 1px solid black;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-div-register-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.login-div-register-forgot a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .Home-parent {
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 30px;
+  }
+  .main-left-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-right-div {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginDiv {
+    width: 80%;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  form {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  select {
+    height: 40px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  input {
+    border: 1px solid black;
+    height: 40px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  button {
+    border: 1px solid black;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+}
+
+/* 📱 Extra small screens */
+
+@media (max-width: 480px) {
+}

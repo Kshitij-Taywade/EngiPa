@@ -1,0 +1,20 @@
+.feed-section {
+  border: 2px solid black;
+  height: 250px;
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.post-paper {
+  width: 150px;
+  overflow: hidden;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.post-paper img {
+  object-fit: cover;
+  border: 2px solid black;
+}

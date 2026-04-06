@@ -1,0 +1,7 @@
+.Footer-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: 2px solid black;
+}
