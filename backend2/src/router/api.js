@@ -206,7 +206,26 @@ router.post("/upload-paper", authenticateToken, upload.single("file"),
 );
 
 
+router.get("/get-paper", async(req, res) => {
+    try {
+        const { department, year, semester, subject, paper_type } = req.query;
 
+        // Build query dynamically
+        const query = {};
+        if (department) query.department = department;
+        if (year) query.year = Number(year);
+        if (semester) query.semester = Number(semester);
+        if (subject) query.subject = subject;
+        if (paper_type) query.paper_type = paper_type;
+
+        const papers = await paperModel.find(query);
+
+        res.json({ posts: papers });
+    } catch (err) {
+        console.error("Error fetching papers:", err);
+        res.status(500).json({ error: "Server error" });
+    }
+});
 
 
 
