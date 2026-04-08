@@ -50,6 +50,8 @@ router.post("/AdminRegister", async(req, res) => {
         if (!clg_ID || clg_ID.toString().length < 11) {
             return res.status(400).json({ message: "clg_ID must be at least 11 digits" });
         }
+
+        clg_ID = Number(req.body.clg_ID);
         // check admin exist or not 
 
         // 1...  Check by using enrollement
