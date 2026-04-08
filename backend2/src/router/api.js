@@ -1,11 +1,15 @@
 import express from "express";
 import studentModel from "../models/student.model.js";
 import adminModel from "../models/admin.model.js";
+import paperModel from "../models/paper.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import authenticateToken from "../auth/authentication.js";
+import uploadFile from "../services/storage.services.js"
+import multer from "multer"
 
 const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage() })
 
 // REGISTER student
 router.post("/register", async(req, res) => {
@@ -155,6 +159,59 @@ router.post("/login", async(req, res) => {
 });
 
 
+//upload paper 
+
+router.post("/upload-paper", authenticateToken, upload.single("file"),
+    async(req, res) => {
+        try {
+            // check user is admin or not
+            const userId = req.user.id; // comes from JWT
+            const admin = await adminModel.findById(userId);
+
+            if (!admin) {
+                return res.status(403).json({
+                    message: "Access Rejected. Only admins can upload papers.",
+                });
+            }
+
+            if (!req.file) {
+                return res.status(400).json({
+                    message: "No file uploaded",
+                });
+            }
+            // Upload to ImageKit
+            const result = await uploadFile(req.file.buffer);
+            // Save to MongoDB
+            const paper = await paperModel.create({
+                file: result.url, // ✅ store ImageKit URL here
+                subject: req.body.subject,
+                semester: req.body.semester,
+                year: req.body.year,
+                paper_type: req.body.paper_type,
+                department: req.body.department,
+            });
+
+
+            return res.status(201).json({
+                message: "Paper uploaded successfully",
+                paper,
+            });
+        } catch (e) {
+            console.error("Error in /upload-paper:", e);
+            return res.status(500).json({
+                message: "Error from Backend side",
+            });
+        }
+    }
+);
+
+
+
+
+
+
+
+
 // GET USER INFO
 router.get("/get", authenticateToken, async(req, res) => {
     try {
@@ -169,5 +226,9 @@ router.get("/get", authenticateToken, async(req, res) => {
         return res.status(500).json({ message: "Error from backend" });
     }
 });
+
+
+
+
 
 export default router;
