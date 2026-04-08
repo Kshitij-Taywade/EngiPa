@@ -40,18 +40,16 @@ router.post("/register", async(req, res) => {
 });
 
 // REGISTER admin
-router.post("/AdminRegister", async(req, res) => {
+router.post("/adminRegister", async(req, res) => {
     try {
         const { fullName, clg_ID, password, email, mobile, department } = req.body;
 
 
         //check enrollment is valid or not 
-        clg_ID = Number(req.body.clg_ID);
-        if (!clg_ID || clg_ID.toString().length < 11) {
+        Number(req.body.clg_ID);
+        if (!clg_ID) {
             return res.status(400).json({ message: "clg_ID must be at least 11 digits" });
         }
-
-
         // check admin exist or not 
 
         // 1...  Check by using enrollement

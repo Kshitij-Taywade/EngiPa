@@ -10,6 +10,7 @@ const adminSchema = new mongoose.Schema({
         type: Number,
         unique: true,
         required: true,
+        minlength: 11
     },
     password: {
         type: String,
