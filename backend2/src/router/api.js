@@ -1,7 +1,7 @@
 import express from "express";
 import studentModel from "../models/student.model.js";
 import adminModel from "../models/admin.model.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import authenticateToken from "../auth/authentication.js";
 
