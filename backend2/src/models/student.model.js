@@ -16,18 +16,20 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 10
+
     },
     email: {
         type: String,
         unique: true,
         required: true,
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
     },
     mobile: {
         type: String,
         unique: true,
         required: true,
-
+        match: /^\d{10}$/
     },
     department: {
         type: String,
@@ -46,7 +48,7 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const userModel = mongoose.model("user", userSchema);
+const studentModel = mongoose.model("user", userSchema);
 
 
-export default userModel;
+export default studentModel;

@@ -20,12 +20,14 @@ const adminSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
     },
     mobile: {
         type: String,
         unique: true,
         required: true,
-
+        match: /^\d{10}$/
     },
     department: {
         type: String,
