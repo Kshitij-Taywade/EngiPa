@@ -12,25 +12,16 @@ router.post("/register", async(req, res) => {
     try {
         const { fullName, enrollment, password, email, mobile, department } = req.body;
 
-        // validations
-        if (!fullName || fullName.length < 10) {
-            return res.status(400).json({ message: "Full name must be at least 10 characters" });
-        }
-        if (!enrollment || enrollment.length < 10) {
-            return res.status(400).json({ message: "Enrollment number must be at least 10 characters" });
-        }
-        if (!mobile || mobile.length !== 10) {
-            return res.status(400).json({ message: "Mobile number must be exactly 10 digits" });
-        }
-        if (!password || password.length < 8) {
-            return res.status(400).json({ message: "Password must be at least 8 characters" });
-        }
+        // validations...
 
-        // create user (password will be hashed by pre-save hook in schema)
-        const newUser = new studentModel({
+        // hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // create user
+        const newUser = new userModel({
             fullName,
             enrollment,
-            password,
+            password: hashedPassword,
             email,
             mobile,
             department,
