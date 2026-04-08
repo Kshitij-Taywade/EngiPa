@@ -15,7 +15,7 @@ const Navigate=useNavigate();
 
   const Submit = async (e) => {
     try{e.preventDefault();
-       const response = await axios.post("http://localhost:8000/AdminRegister", {
+       const response = await axios.post("https://engipa-1.onrender.com/AdminRegister", {
       ...Value,
       role: "admin"   // or "admin" depending on your logic
     });
