@@ -15,7 +15,7 @@ const Navigate=useNavigate();
 
   const Submit = async (e) => {
     try{e.preventDefault();
-       const response = await axios.post("http://localhost:8000/api/auth/register", {
+       const response = await axios.post("https://engipa-1.onrender.com/register", {
       ...Value,
       role: "user"
     });
@@ -40,7 +40,7 @@ const Navigate=useNavigate();
       <section className="registration-section">
         <h1>Student Registration</h1>
 
-        <form className="register-form" aria-label="Student Registration Form">
+        <form className="register-form" aria-label="Student Registration Form"  onSubmit={Submit}>
           {/* ROW 1 */}
           <div className="form-row">
 
@@ -91,7 +91,7 @@ const Navigate=useNavigate();
 
           {/* BUTTONS */}
           <div className="form-row buttons">
-            <button type="submit" className="Register-button" onClick={Submit}>Register</button>
+            <button type="submit" className="Register-button" >Register</button>
            
           </div>
         </form>

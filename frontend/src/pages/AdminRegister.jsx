@@ -15,7 +15,7 @@ const Navigate=useNavigate();
 
   const Submit = async (e) => {
     try{e.preventDefault();
-       const response = await axios.post("http://localhost:8000/api/auth/AdminRegister", {
+       const response = await axios.post("http://localhost:8000/AdminRegister", {
       ...Value,
       role: "admin"   // or "admin" depending on your logic
     });
@@ -52,7 +52,7 @@ const Navigate=useNavigate();
 
             <div className="form-group">
               <label htmlFor="enroll">EngiPa UI ID</label>
-              <input id="enroll" name="enrollment" type="text" required 
+              <input id="enroll" name="enrollment" type="number" required 
               value={Value.enrollment  || ''} onChange={Change} />
             </div>
 

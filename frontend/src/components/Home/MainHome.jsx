@@ -7,46 +7,39 @@ const MainHome = () => {
 
  const [Value, setValue] = useState({});
 const Navigate=useNavigate();
-  const Change = (e) => {
-    
+
+  const Change = (e) => { 
     const { name, value } = e.target;
-    setValue({ ...Value, [name]: value });
-      
+    setValue({ ...Value, [name]: value });   
   };
 
   const Submit = async (e) => {
-     e.preventDefault();
-    try{
-     
-       const response = await axios.post("http://localhost:8000/api/auth/login", {
-      ...Value,
+  e.preventDefault();
+  try {
+    let payload = { role: Value.role, password: Value.password };
 
-         
-    });
-  
-     localStorage.setItem("id",response.data.id)
-     localStorage.setItem("token",response.data.token)
-     localStorage.setItem("role",response.data.role )
+    if (Value.role === "admin") {
+      payload.clg_ID = Value.enrollment; // reuse the same input field
+    } else {
+      payload.enrollment = Value.enrollment;
+    }
 
+    const response = await axios.post("https://engipa-1.onrender.com/login", payload);
 
-     if (response.data.role === "admin") {
+    localStorage.setItem("id", response.data.id);
+    localStorage.setItem("token", response.data.token);
+    localStorage.setItem("role", response.data.role);
+
+    if (response.data.role === "admin") {
       Navigate("/PostPaper");
     } else {
       Navigate("/FindPaper");
     }
-
-    
-    
-    }
-
-    catch(e){
-      alert(e.response?.data?.message || "Registration failed");
-    return console.error(e.response?.data || e.message);
-    
-    }
+  } catch (e) {
+    alert(e.response?.data?.message || "login failed");
+    console.error(e.response?.data || e.message);
   }
-
-  
+};
   return (
      <div className="Home-parent">
          {/* <!-- LEFT --> */}
@@ -63,11 +56,13 @@ const Navigate=useNavigate();
 
             <form className="loginForm" onSubmit={Submit}>
               {/* <!-- IMPORTANT: value must match backend role --> */}
-             <select required defaultValue=""  name="role">
+           <select required name="role" value={Value.role || ""} onChange={Change}
+>
   <option value="" disabled>Select Role</option>
   <option value="admin">Admin</option>
   <option value="user">Student</option>
 </select>
+
               <input
                 type="text"
                 placeholder="Username"
@@ -86,7 +81,7 @@ const Navigate=useNavigate();
                 value={Value.password}
                 onChange={Change}/>
 
-              <button type="submit"  >
+              <button type="submit">
                 Login
                 </button>
             </form>
@@ -104,3 +99,4 @@ const Navigate=useNavigate();
 }
 
 export default MainHome
+
