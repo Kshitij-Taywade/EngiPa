@@ -46,10 +46,9 @@ router.post("/AdminRegister", async(req, res) => {
 
 
         //check enrollment is valid or not 
-        if (clg_ID.toString().length < 11) {
-            return res.status(400).json({
-                message: "The size of clg_ID number must be greater than 10"
-            })
+        clg_ID = Number(req.body.clg_ID);
+        if (!clg_ID || clg_ID.toString().length < 11) {
+            return res.status(400).json({ message: "clg_ID must be at least 11 digits" });
         }
         // check admin exist or not 
 
@@ -92,9 +91,6 @@ router.post("/AdminRegister", async(req, res) => {
             mobile: mobile,
             department: department,
             role: "admin"
-
-
-
         });
         await newUser.save();
         return res.status(200).json({
