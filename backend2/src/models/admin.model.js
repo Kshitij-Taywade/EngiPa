@@ -7,7 +7,7 @@ const adminSchema = new mongoose.Schema({
         required: true,
     },
     clg_ID: {
-        type: String,
+        type: Number,
         unique: true,
         required: true,
     },

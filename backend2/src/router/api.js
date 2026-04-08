@@ -7,15 +7,12 @@ import authenticateToken from "../auth/authentication.js";
 
 const router = express.Router();
 
-// REGISTER USER
+// REGISTER student
 router.post("/register", async(req, res) => {
     try {
         const { fullName, enrollment, password, email, mobile, department } = req.body;
 
-        // validations...
-
         // hash password before saving
-        // ✅ hash password before saving
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -41,6 +38,76 @@ router.post("/register", async(req, res) => {
         res.status(500).json({ message: "Error from backend side" });
     }
 });
+
+// REGISTER admin
+router.post("/AdminRegister", async(req, res) => {
+    try {
+        const { fullName, clg_ID, password, email, mobile, department } = req.body;
+
+
+        //check enrollment is valid or not 
+        if (clg_ID.toString().length < 11) {
+            return res.status(400).json({
+                message: "The size of clg_ID number must be greater than 10"
+            })
+        }
+        // check admin exist or not 
+
+        // 1...  Check by using enrollement
+        const adminclg_ID = await adminModel.findOne({ clg_ID: clg_ID });
+
+        if (adminclg_ID) {
+            return res.status(400).json({
+                message: "clg_ID already exists"
+            })
+        }
+
+        // 2...check by using email
+
+        const adminEmail = await adminModel.findOne({ email: email });
+        if (adminEmail) {
+            return res.status(400).json({
+                message: "Email already exists"
+            })
+        }
+
+        // check mobile number 
+        const adminMobile = await adminModel.findOne({ mobile: mobile });
+        if (adminMobile) {
+            return res.status(400).json({
+                message: "Mobile number already exists"
+            })
+        }
+
+
+        // hashing the password
+
+        const hashing = await bcrypt.hash(password, 10)
+            // Creating new User 
+        const newUser = new adminModel({
+            fullName: fullName,
+            clg_ID: clg_ID,
+            password: hashing,
+            email: email,
+            mobile: mobile,
+            department: department,
+            role: "admin"
+
+
+
+        });
+        await newUser.save();
+        return res.status(200).json({
+            message: "new admin created succesfully"
+        })
+
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({
+            message: "error from backend side"
+        })
+    }
+})
 
 // LOGIN
 router.post("/login", async(req, res) => {
