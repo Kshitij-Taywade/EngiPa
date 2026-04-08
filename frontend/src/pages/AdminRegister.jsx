@@ -52,8 +52,8 @@ const Navigate=useNavigate();
 
             <div className="form-group">
               <label htmlFor="enroll">EngiPa UI ID</label>
-              <input id="enroll" name="clg_ID" type="number" required 
-              value={Value.enrollment  || ''} onChange={Change} />
+              <input id="enroll" name="clg_ID" type="Number" required 
+              value={Value.clg_ID  || ''} onChange={Change} />
             </div>
 
              <div className="form-group">
