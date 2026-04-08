@@ -11,7 +11,7 @@ dotenv.config();
 console.log("4️⃣ Env loaded");
 
 connectDB();
-console.log("5️⃣ DB connection called");
+console.log("5️⃣ DB connection callaed");
 
 const PORT = process.env.PORT || 5000;
 
