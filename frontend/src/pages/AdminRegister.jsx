@@ -41,7 +41,7 @@ const Navigate=useNavigate();
       <section className="registration-section">
         <h1>Admin Registration</h1>
 
-        <form className="register-form" aria-label="Student Registration Form">
+        <form className="register-form" aria-label="Student Registration Form"  onSubmit={Submit}>
           {/* ROW 1 */}
           <div className="form-row">
 
@@ -52,7 +52,7 @@ const Navigate=useNavigate();
 
             <div className="form-group">
               <label htmlFor="enroll">EngiPa UI ID</label>
-              <input id="enroll" name="enrollment" type="number" required 
+              <input id="enroll" name="clg_ID" type="number" required 
               value={Value.enrollment  || ''} onChange={Change} />
             </div>
 
@@ -92,7 +92,7 @@ const Navigate=useNavigate();
 
           {/* BUTTONS */}
           <div className="form-row buttons">
-            <button type="submit" className="Register-button" onClick={Submit}>Register</button>
+            <button type="submit" className="Register-button" >Register</button>
            
           </div>
         </form>
