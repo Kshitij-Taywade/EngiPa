@@ -12,7 +12,7 @@ const FindPaper = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get("http://localhost:8000/api/auth/get-paper", {
+      const res = await axios.get("https://engipa-1.onrender.com/get-paper", {
         params: { department, year, semester, subject, paper_type }
       });
       setPosts(res.data.posts);

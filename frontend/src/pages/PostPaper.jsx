@@ -8,7 +8,7 @@ const PostPaper = () => {
     const formData = new FormData(e.target);
     const token = localStorage.getItem("token");
 
-    axios.post("http://localhost:8000/api/auth/upload-paper", formData, {
+    axios.post("https://engipa-1.onrender.com/upload-paper", formData, {
       headers: {
         Authorization: `Bearer ${token}`
         // ✅ Do not set Content-Type manually, Axios handles it
