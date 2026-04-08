@@ -14,14 +14,15 @@ router.post("/register", async(req, res) => {
 
         // validations...
 
-        // hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // hash password before saving
+        // ✅ hash password before saving
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
-        // create user
-        const newUser = new userModel({
+        const newUser = new studentModel({
             fullName,
             enrollment,
-            password: hashedPassword,
+            password: hashedPassword, // always hashed here
             email,
             mobile,
             department,
