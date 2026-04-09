@@ -1,24 +1,14 @@
-.post-paper {
-  width: 150px;
-  overflow: hidden;
-  object-fit: cover;
-  border: 2px solid black;
-}
-
-.post-paper img {
-  object-fit: cover;
-  border: 2px solid black;
-}
-
 .PostPaper-parent {
   border: 2px solid white;
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .Post-paper-section {
+  margin-top: 10px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,6 +22,41 @@
   gap: 30px;
 }
 
+.form-roww {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
 .form-group {
   width: 100px;
+}
+
+@media (max-width: 768px) {
+  .PostPaper-parent {
+    border: 2px solid white;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Post-paper-section {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .form-roww {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form-group {
+    width: 100%;
+  }
 }

@@ -42,7 +42,7 @@ const Navigate=useNavigate();
 
         <form className="register-form" aria-label="Student Registration Form"  onSubmit={Submit}>
           {/* ROW 1 */}
-          <div className="form-row">
+          <div className="form-row-register">
 
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
@@ -64,7 +64,7 @@ const Navigate=useNavigate();
           </div>
 
           {/* ROW 2 */}
-          <div className="form-row">
+          <div className="form-row-register">
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input id="email" name="email" type="email" required value={Value.email  || ''} onChange={Change} />
@@ -82,7 +82,7 @@ const Navigate=useNavigate();
           </div>
 
           {/* ROW 3 */}
-          <div className="form-row">
+          <div className="form-row-register">
             <div className="form-group">
               <label htmlFor="password">Create Password</label>
               <input id="password" name="password" type="password" required value={Value.password  || ''} onChange={Change} />

@@ -31,7 +31,7 @@ const PostPaper = () => {
 
         <form className="post-paper-form" onSubmit={handleSubmit}>
           {/* ROW 1 */}
-          <div className="form-row">
+          <div className="form-roww">
             <div className="form-group">
               <label htmlFor="branch">Branch</label>
               <select id="branch" name="department" required>
@@ -56,7 +56,7 @@ const PostPaper = () => {
           </div>
 
           {/* ROW 2 */}
-          <div className="form-row">
+          <div className="form-roww">
             <div className="form-group">
               <label htmlFor="semester">Semester</label>
               <select id="semester" name="semester" required>
@@ -85,7 +85,7 @@ const PostPaper = () => {
           </div>
 
           {/* ROW 3 */}
-          <div className="form-row">
+          <div className="form-roww">
             <div className="form-group">
               <label htmlFor="paper-type">Paper Type</label>
               <select id="paper-type" name="paper_type" required>
