@@ -54,7 +54,7 @@
 @media (max-width: 768px) {
     .About-parent {
         width: 100vw;
-        height: 300vh;
+        height: 400vh;
         display: flex;
         justify-content: center;
         align-items: center;
