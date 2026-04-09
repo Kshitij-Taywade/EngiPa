@@ -1,6 +1,6 @@
 .About-parent {
     width: 100vw;
-    height: 130vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@
 @media (max-width: 768px) {
     .About-parent {
         width: 100vw;
-        height: 400vh;
+        height: 300vh;
         display: flex;
         justify-content: center;
         align-items: center;
