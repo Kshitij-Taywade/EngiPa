@@ -78,7 +78,7 @@ const PostPaper = () => {
                 id="subject"
                 name="subject"
                 type="text"
-                placeholder="Enter Subject Name"
+                placeholder="Ex. Digital Image Processing"
                 required
               />
             </div>

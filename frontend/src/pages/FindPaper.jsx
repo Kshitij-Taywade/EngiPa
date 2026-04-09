@@ -86,7 +86,7 @@ const FindPaper = () => {
               <input
                 id="subject"
                 type="text"
-                placeholder="Enter Subject Name"
+                placeholder="Ex. Digital Image Processing"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 required
@@ -144,7 +144,7 @@ const FindPaper = () => {
             </div>
           ))
         ) : (
-          <h1>No posts available</h1>
+          <h1>No paper available</h1>
         )}
       </section>
     </div>
