@@ -118,18 +118,29 @@ const FindPaper = () => {
         </form>
       </section>
 
-      <section className="feed-section">
+      <section className="feed-section"> 
         {posts.length > 0 ? (
           posts.map((post) => (
-            <div key={post._id || post.file} className="post-paper">
-              <h3>{post.subject}</h3>
-              <p>Department: {post.department}</p>
-              <p>Year: {post.year}</p>
-              <p>Semester: {post.semester}</p>
-              <p>Paper Type: {post.paper_type}</p>
+            
+            <div key={post._id || post.file} className="find-paper">
+              <div className="paper-left-div">
+                <img src="https://static.pw.live/5eb393ee95fab7468a79d189/8ef9635c-1992-4f24-8e93-99e78c5a5c26.png" alt="paper" />
+              </div>
+
+              <div  className="paper-right-div">
+              <p>Subject : {post.subject}</p>
+              <p>Department : {post.department}</p>
+              <p>Year : {post.year}</p>
+              <p>Semester : {post.semester}</p>
+              <p>Paper Type : {post.paper_type}</p>
+
+              <div  className="uploaded-paper-div">
               <a href={post.file} target="_blank" rel="noopener noreferrer">
                 View Paper
               </a>
+              </div>
+
+              </div>
             </div>
           ))
         ) : (

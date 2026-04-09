@@ -26,7 +26,7 @@ const PostPaper = () => {
 
   return (
     <div className="PostPaper-parent">
-      <section className="find-paper-section">
+      <section className="Post-paper-section">
         <h1>Post Papers</h1>
 
         <form className="post-paper-form" onSubmit={handleSubmit}>

@@ -1,0 +1,37 @@
+.post-paper {
+  width: 150px;
+  overflow: hidden;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.post-paper img {
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.PostPaper-parent {
+  border: 2px solid white;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Post-paper-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.post-paper-form {
+  width: 80%;
+  gap: 30px;
+}
+
+.form-group {
+  width: 100px;
+}

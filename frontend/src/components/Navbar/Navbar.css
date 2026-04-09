@@ -29,9 +29,21 @@
   gap: 30px;
 }
 
+.nav-links {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links:hover {
+  text-decoration: underline;
+}
+
 /* 📱 Mobile screens */
 
 @media (max-width: 768px) {
+  .links-div {
+    display: none;
+  }
 }
 
 /* 📱 Extra small screens */

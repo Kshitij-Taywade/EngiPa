@@ -88,8 +88,8 @@ const Navigate=useNavigate();
 
             <div className="login-div-register-forgot">
             
-              <Link to="/AdminRegister" >Forgot Password?</Link>
-              <Link to="/Register">Create new account</Link>
+              <Link to="/AdminRegister">Admin Registration</Link>
+              <Link to="/Register">Student Registration</Link>
               
             </div>
           </div>
