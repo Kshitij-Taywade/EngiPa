@@ -1,0 +1,81 @@
+.About-parent {
+  width: 100vw;
+  height: 130vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-section1 {
+  width: 80%;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.about-section2 {
+  border: 1px solid black;
+  width: 40%;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+
+.about-kshitij {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.about-kshitij img {
+  width: 220px;
+  height: 220px;
+  border: 2px solid black;
+  border-radius: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .About-parent {
+    width: 100vw;
+    height: 250vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .about-section2 {
+    border: 1px solid black;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
