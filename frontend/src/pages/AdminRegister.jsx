@@ -43,20 +43,20 @@ const Navigate=useNavigate();
 
         <form className="register-form" aria-label="Student Registration Form"  onSubmit={Submit}>
           {/* ROW 1 */}
-          <div className="form-row">
+          <div className="form-row-register">
 
-            <div className="form-group">
+            <div className="form-group-register">
               <label htmlFor="name">Full Name</label>
              <input id="name" name="fullName" type="text" value={Value.fullName || ''} onChange={Change} />
             </div>
 
-            <div className="form-group">
+            <div className="form-group-register">
               <label htmlFor="enroll">EngiPa UI ID</label>
               <input id="enroll" name="clg_ID" type="Number" required 
               value={Value.clg_ID  || ''} onChange={Change} />
             </div>
 
-             <div className="form-group">
+             <div className="form-group-register">
               <label htmlFor="mobile">Mobile Number</label>
               <input id="mobile" name="mobile" type="tel" value={Value.mobile  || ''} onChange={Change} />
             </div>
@@ -65,15 +65,15 @@ const Navigate=useNavigate();
           </div>
 
           {/* ROW 2 */}
-          <div className="form-row">
-            <div className="form-group">
+          <div className="form-row-register">
+            <div className="form-group-register">
               <label htmlFor="email">Email Address</label>
               <input id="email" name="email" type="email" required value={Value.email  || ''} onChange={Change} />
             </div>
 
            
 
-            <div className="form-group">
+            <div className="form-group-register">
               <label htmlFor="dept">Department</label>
               <select id="dept" name="department" required value={Value.department || '' } onChange={Change}>
                 <option value="">Select</option>
@@ -83,8 +83,8 @@ const Navigate=useNavigate();
           </div>
 
           {/* ROW 3 */}
-          <div className="form-row">
-            <div className="form-group">
+          <div className="form-row-register">
+            <div className="form-group-register">
               <label htmlFor="password">Create Password</label>
               <input id="password" name="password" type="password" required value={Value.password  || ''} onChange={Change} />
             </div>
