@@ -45,7 +45,7 @@ const Navigate=useNavigate();
          {/* <!-- LEFT --> */}
         <div className="main-left-div">
           <div className="img-div">
-            <img src="https://i1.pickpik.com/photos/294/960/948/university-student-graduation-photo-hats-preview.jpg" alt="Banner" />
+            <img src="https://ik.imagekit.io/9ntvk0xhp/EngiPa%20main%20page%20image.png" alt="Banner" />
           </div>
         </div>
 
