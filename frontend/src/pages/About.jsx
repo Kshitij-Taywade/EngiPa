@@ -14,11 +14,7 @@ const About = () => {
       <p>" Our mission is to simplify access to quality academic materials and help students save time, reduce stress, and perform better. "</p>
 </section>
 
-     <section  className="about-section1">
-      <h3>Our Mission</h3>
-      <p>" Our mission is to simplify access to quality academic materials and help students save time, reduce stress, and perform better. "</p>
-</section>
-
+ 
   <section  className="about-section1">
       <h3>The Problem We Solve</h3>
       <p>" Engineering students often struggle to find previous papers, and study resources in one place. EngiPa solves this by providing a centralized and easy-to-use platform."</p>
@@ -37,7 +33,7 @@ const About = () => {
 
    <section  className="about-section2">
        <div className="about-kshitij">
-        <img src="/src/components/images/Kshitij.jpg" alt="Kshitij Image" />
+        <img src="https://ik.imagekit.io/9ntvk0xhp/Admin%20images/Kshitij.jpg" alt="Kshitij Image" />
        </div>
        <div><h3>Founder</h3></div>
         <div><b>Kshitij R. Taywade</b></div>
@@ -45,7 +41,7 @@ const About = () => {
 
  <section  className="about-section2">
        <div className="about-kshitij">
-        <img src="/src/components/images/Kshitij.jpg" alt="Himanshu Image" />
+        <img src="" alt="Himanshu Image" />
        </div>
        <div><h3>CEO</h3></div>
         <div><b>Himanshu A. Bahatkar</b></div>
@@ -54,7 +50,7 @@ const About = () => {
 
  <section  className="about-section2">
        <div className="about-kshitij">
-        <img src="/src/components/images/Kshitij.jpg" alt="Jayash Image" />
+        <img src="" alt="Jayash Image" />
        </div>
        <div><h3>............</h3></div>
         <div><b>Jayash G. Bhuyar</b></div>
@@ -63,10 +59,10 @@ const About = () => {
 
 <section  className="about-section2">
        <div className="about-kshitij">
-        <img src="/src/components/images/Kshitij.jpg" alt="Shivam Image" />
+        <img src="" alt="Shivam Image" />
        </div>
        <div><h3>............</h3></div>
-        <div><b>Shivam Deshmukh</b></div>
+        <div><b>Shivam S. Deshmukh</b></div>
 </section>
 
 </div>

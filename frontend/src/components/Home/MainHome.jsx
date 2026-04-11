@@ -65,7 +65,7 @@ const Navigate=useNavigate();
 
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Enrollment"
                 id="loginUsername"
                 name="enrollment"
                 required

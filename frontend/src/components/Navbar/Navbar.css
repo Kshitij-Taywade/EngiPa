@@ -1,96 +1,101 @@
 .Navbar-parent {
-  background-color: red;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  border: 2px solid black;
-  background-color: white;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border: 2px solid black;
+    background-color: white;
 }
 
 .logo-div {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  margin-left: 40px;
-  overflow: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    overflow: auto;
 }
 
 .logo-div img {
-  object-fit: cover;
+    object-fit: cover;
 }
 
 .links-div {
-  margin-right: 40px;
-  display: flex;
-  font-size: 20px;
-  gap: 30px;
+    margin-right: 40px;
+    display: flex;
+    font-size: 20px;
+    gap: 30px;
 }
 
 .nav-links {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: black;
 }
 
 .nav-links:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .menu-icon {
-  display: none;
+    display: none;
 }
 
 .links-div2 {
-  display: none;
+    display: none;
 }
+
 
 /* 📱 Mobile screens */
 
 @media (max-width: 768px) {
-  .links-div {
-    display: none;
-  }
-  .menu-icon {
-    background-color: white;
-    border: 0px;
-    display: block;
-    height: 100%;
-    width: 40px;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 25px;
-  }
-  .logo-div {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    margin-left: 30px;
-    overflow: auto;
-  }
-  .links-div2 {
-    display: none;
-    /* hide links by default */
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .links-div2.open {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    font-size: 25px;
-    margin-top: 10px;
-    position: absolute;
-    background-color: black;
-    width: 100%;
-    height: 94%;
-  }
+    .links-div {
+        display: none;
+    }
+    .menu-icon {
+        background-color: white;
+        border: 0px;
+        display: block;
+        height: 100%;
+        width: 40px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 25px;
+    }
+    .logo-div {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+        overflow: auto;
+    }
+    .links-div2 {
+        display: none;
+        /* hide links by default */
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .links-div2.open {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-size: 25px;
+        margin-top: 10px;
+        position: absolute;
+        background-color: black;
+        width: 100%;
+        height: 94%;
+    }
 }
+
 
 /* Extra small screens */
 
-@media (max-width: 480px) {
-}
+@media (max-width: 480px) {}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 480px) {}
