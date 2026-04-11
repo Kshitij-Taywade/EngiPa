@@ -70,6 +70,10 @@
         margin-left: 30px;
         overflow: auto;
     }
+    .nav-links {
+        text-decoration: none;
+        color: white;
+    }
     .links-div2 {
         display: none;
         /* hide links by default */
