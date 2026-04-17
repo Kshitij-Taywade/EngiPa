@@ -39,7 +39,7 @@ router.post("/register", async(req, res) => {
             return res.status(400).json({ message: `${field} already exists` });
         }
         console.error(e);
-        res.status(500).json({ message: "Error from backend side" });
+        res.status(500).json({ message: "Something is Wrong , Please fill form carefully" });
     }
 });
 
@@ -154,7 +154,7 @@ router.post("/login", async(req, res) => {
             return res.status(400).json({ message: `${field} already exists` });
         }
         console.error(e);
-        return res.status(500).json({ message: "Error from backend side" });
+        return res.status(500).json({ message: "Something is Wrong" });
     }
 });
 
