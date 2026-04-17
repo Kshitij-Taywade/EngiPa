@@ -51,8 +51,8 @@ router.post("/adminRegister", async(req, res) => {
 
         //check enrollment is valid or not 
         Number(req.body.clg_ID);
-        if (!clg_ID) {
-            return res.status(400).json({ message: "clg_ID must be at least 11 digits" });
+        if (!clg_ID || clg_ID < 11) {
+            return res.status(400).json({ message: "Invalid EngiPA UI ID" });
         }
         // check admin exist or not 
 
