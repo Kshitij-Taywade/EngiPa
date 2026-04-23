@@ -80,7 +80,7 @@ button {
 
 .login-div-register-forgot {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 14px;
 }
 

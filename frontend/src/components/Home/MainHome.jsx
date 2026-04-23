@@ -88,7 +88,7 @@ const Navigate=useNavigate();
 
             <div className="login-div-register-forgot">
             
-              <Link to="/AdminRegister">Admin Registration</Link>
+  
               <Link to="/Register">Student Registration</Link>
               
             </div>
