@@ -9,6 +9,43 @@ const FindPaper = () => {
   const [subject, setSubject] = useState('');
   const [paper_type, setPaperType] = useState('');
 
+  
+  const subjectsByBranchSemester = {
+  CSE: {
+    3: ["DSA", "DBMS", "Discrete Mathematics"],
+    4: ["Operating Systems", "Computer Networks", "TOC"],
+    5: ["Software Engineering", "AI", "Compiler Design"],
+    6: ["Machine Learning", "Cloud Computing", "Big Data"],
+  },
+
+  IT: {
+    3: ["DSA", "DBMS", "Web Technology"],
+    4: ["Operating Systems", "Computer Networks", "Software Engineering"],
+    5: ["Cloud Computing", "AI", "Cyber Security"],
+    6: ["Machine Learning", "Big Data", "DevOps"],
+  },
+
+  EXTC: {
+    3: ["Digital Electronics", "Network Theory"],
+
+    4: ["Analog Circuit", "Analog & Digital Communication", "Network Theory","Aptitude For Engineers","Artificial Intelligence And Expert System","Signal And System",],
+
+    5: ["Digital Communication", "DSP", "VLSI"],
+
+    6: ["Microwave Theory And Technique", "Digital Image Processing", "Embedded System","Biomedical Electronics","Generative Artificial Intelligence","Adaptive Signal Processing"],
+  },
+
+  MECH: {
+    3: ["Thermodynamics", "Fluid Mechanics", "Manufacturing Processes"],
+    4: ["Heat Transfer", "Machine Design", "Dynamics of Machines"],
+    5: ["CAD/CAM", "Industrial Engineering", "Automobile Engineering"],
+    6: ["Robotics", "Power Plant Engineering", "Refrigeration"],
+  },
+};
+
+const availableSubjects =
+  subjectsByBranchSemester[department]?.[semester] || [];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,12 +64,17 @@ const FindPaper = () => {
         <h1>Find Papers</h1>
         <form className="find-paper-form" onSubmit={handleSubmit}>
           <div className="form-row">
+
             <div className="form-group">
               <label htmlFor="department">Department</label>
               <select
                 id="department"
                 value={department}
-                onChange={(e) => setDepartment(e.target.value)}
+                onChange={(e) => {
+             setDepartment(e.target.value);
+             setSemester("");
+              setSubject("");
+               }}
                 required
               >
                 <option value="">Select Department</option>
@@ -66,7 +108,10 @@ const FindPaper = () => {
               <select
                 id="semester"
                 value={semester}
-                onChange={(e) => setSemester(e.target.value)}
+                onChange={(e) => {
+  setSemester(e.target.value);
+  setSubject("");
+}}
                 required
               >
                 <option value="">Select Semester</option>
@@ -83,14 +128,27 @@ const FindPaper = () => {
 
             <div className="form-group">
               <label htmlFor="subject">Subject</label>
-              <input
-                id="subject"
-                type="text"
-                placeholder="Ex. Digital Image Processing"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-              />
+
+             <select
+  id="subject"
+  value={subject}
+  onChange={(e) => setSubject(e.target.value)}
+  required
+  disabled={!department || !semester}
+>
+  <option value="">
+    {!department || !semester
+      ? "Select Department & Semester First"
+      : "Select Subject"}
+  </option>
+
+  {availableSubjects.map((sub) => (
+    <option key={sub} value={sub}>
+      {sub}
+    </option>
+  ))}
+</select>
+
             </div>
           </div>
 

@@ -35,40 +35,11 @@ const About = () => {
        <div className="about-kshitij">
         <img src="https://ik.imagekit.io/9ntvk0xhp/Admin%20images/Kshitij%20%20Image222.jpeg" alt="Kshitij Image" />
        </div>
-       <div><h3>Founder</h3></div>
+       <div><h3>Founder & CEO</h3></div>
         <div><b>Kshitij R. Taywade</b></div>
 </section>
 
- <section  className="about-section2">
-       <div className="about-kshitij">
-        <img src="" alt="Himanshu Image" />
-       </div>
-       <div><h3>CEO</h3></div>
-        <div><b>Himanshu A. Bahatkar</b></div>
-</section>
-
-
- <section  className="about-section2">
-       <div className="about-kshitij">
-        <img src="" alt="Jayash Image" />
-       </div>
-       <div><h3>............</h3></div>
-        <div><b>Jayash G. Bhuyar</b></div>
-</section>
-
-
-<section  className="about-section2">
-       <div className="about-kshitij">
-        <img src="" alt="Shivam Image" />
-       </div>
-       <div><h3>............</h3></div>
-        <div><b>Shivam S. Deshmukh</b></div>
-</section>
-
 </div>
-
-
-
     </div>
   )
 }
