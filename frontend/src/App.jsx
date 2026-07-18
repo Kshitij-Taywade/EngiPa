@@ -9,6 +9,7 @@ import Register from './pages/Register.jsx'
 import FindPaper from './pages/FindPaper.jsx'
 import PostPaper from './pages/PostPaper.jsx'
 import AdminRegister from './pages/AdminRegister.jsx'
+import PaperViewer from './pages/PaperViewer.jsx';
 
 import {BrowserRouter as Router,Routes,Route}  from 'react-router-dom'
 
@@ -27,6 +28,7 @@ const App = () => {
        <Route  path="/FindPaper" element={<FindPaper/>}></Route>
          <Route  path="/PostPaper" element={<PostPaper/>}></Route>
        <Route  path="/AdminRegister" element={<AdminRegister/>}></Route>
+       <Route path="/paper/:id" element={<PaperViewer />} />
       
     </Routes>
        <Footer/>

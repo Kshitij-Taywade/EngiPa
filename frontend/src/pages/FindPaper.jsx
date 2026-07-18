@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const FindPaper = () => {
@@ -192,11 +193,17 @@ const availableSubjects =
               <p>Semester : {post.semester}</p>
               <p>Paper Type : {post.paper_type}</p>
 
-              <div  className="uploaded-paper-div">
+              {/* <div  className="uploaded-paper-div">
               <a href={post.file} target="_blank" rel="noopener noreferrer">
                 View Paper
               </a>
-              </div>
+              </div> */}
+
+              <div className="uploaded-paper-div">
+    <Link to={`/paper/${post._id}`}>
+        View Paper
+    </Link>
+</div>
 
               </div>
             </div>
