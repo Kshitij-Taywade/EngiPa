@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import authenticateToken from "../auth/authentication.js";
 import uploadFile from "../services/storage.services.js"
 import multer from "multer"
+import axios from "axios";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() })
@@ -183,7 +184,7 @@ router.post("/upload-paper", authenticateToken, upload.single("file"),
             const result = await uploadFile(req.file.buffer);
             // Save to MongoDB
             const paper = await paperModel.create({
-                file: result.url, // ✅ store ImageKit URL here
+                file: result.url, // store ImageKit URL here
                 subject: req.body.subject,
                 semester: req.body.semester,
                 year: req.body.year,
@@ -228,6 +229,42 @@ router.get("/get-paper", async(req, res) => {
 });
 
 
+// Professional PDF stream route (NO direct ImageKit URL)
+router.get("/stream/:id", async(req, res) => {
+    try {
+        const paper = await paperModel.findById(req.params.id);
+
+        if (!paper) {
+            return res.status(404).json({
+                success: false,
+                message: "Paper not found",
+            });
+        }
+
+        // Fetch PDF from ImageKit
+        const response = await axios({
+            method: "GET",
+            url: paper.file,
+            responseType: "stream",
+        });
+
+        // Send PDF as inline stream
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Content-Disposition", "inline");
+        res.setHeader("Cache-Control", "public, max-age=3600");
+
+        // Pipe PDF stream to browser
+        response.data.pipe(res);
+
+    } catch (err) {
+        console.error("Stream error:", err);
+
+        res.status(500).json({
+            success: false,
+            message: "Unable to open PDF",
+        });
+    }
+});
 
 
 
