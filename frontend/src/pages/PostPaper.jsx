@@ -27,7 +27,7 @@ const subjectsByBranchSemester = {
 
     4: ["Analog Circuit", "Analog & Digital Communication", "Network Theory","Aptitude For Engineers","Artificial Intelligence And Expert System","Signal And System",],
 
-    5: ["Microcontrol and Apllication", "Power Electronic", "Digital Signal Processing","Control Ssytem","Cryptography and Network Security"],
+    5: ["Microcontroller and Application", "Power Electronic", "Digital Signal Processing","Control System","Cryptography and Network Security","Intellectual Property Rights"],
 
     6: ["Microwave Theory And Technique", "Digital Image Processing", "Embedded System","Biomedical Electronics","Generative Artificial Intelligence","Adaptive Signal Processing"],
   },
