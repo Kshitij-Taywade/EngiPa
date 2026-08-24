@@ -23,11 +23,11 @@ const subjectsByBranchSemester = {
   },
 
   EXTC: {
-    3: ["Digital Electronics", "Network Theory"],
+   3: ["Applied Mathematics III", "Electronic Devises & Circuits","Digital System Design","ELectromagnetic Waves"],
 
     4: ["Analog Circuit", "Analog & Digital Communication", "Network Theory","Aptitude For Engineers","Artificial Intelligence And Expert System","Signal And System",],
 
-    5: ["Digital Communication", "DSP", "VLSI"],
+    5: ["Microcontrol and Apllication", "Power Electronic", "Digital Signal Processing","Control Ssytem","Cryptography and Network Security"],
 
     6: ["Microwave Theory And Technique", "Digital Image Processing", "Embedded System","Biomedical Electronics","Generative Artificial Intelligence","Adaptive Signal Processing"],
   },
