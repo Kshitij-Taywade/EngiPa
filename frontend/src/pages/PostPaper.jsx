@@ -23,7 +23,7 @@ const subjectsByBranchSemester = {
   },
 
   EXTC: {
-   3: ["Applied Mathematics III", "Electronic Devises & Circuits","Digital System Design","ELectromagnetic Waves"],
+   3: ["Applied Mathematics III", "Electronic Devises & Circuits","Digital System Design","Electromagnetic Waves"],
 
     4: ["Analog Circuit", "Analog & Digital Communication", "Network Theory","Aptitude For Engineers","Artificial Intelligence And Expert System","Signal And System",],
 
