@@ -53,7 +53,7 @@ const availableSubjects = subjectsByBranchSemester[branch]?.[semester] || [];
     axios.post("https://engipa-1.onrender.com/upload-paper", formData, {
       headers: {
         Authorization: `Bearer ${token}`
-        // ✅ Do not set Content-Type manually, Axios handles it
+        //  Do not set Content-Type manually, Axios handles it
       }
     })
     .then((res) => {
