@@ -9,7 +9,9 @@ import Register from './pages/Register.jsx'
 import FindPaper from './pages/FindPaper.jsx'
 import PostPaper from './pages/PostPaper.jsx'
 import AdminRegister from './pages/AdminRegister.jsx'
-import PaperViewer from './pages/PaperViewer.jsx';
+import PaperViewer from './pages/PaperViewer.jsx'
+import Dashboard from './pages/Dashboard.jsx';
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import {BrowserRouter as Router,Routes,Route}  from 'react-router-dom'
 
@@ -22,13 +24,16 @@ const App = () => {
       
     <Routes>
       <Route exact path="/" element={<Login/>}></Route>
-      <Route  path="/About-us" element={<About/>}></Route>
-      <Route  path="/Contact-us" element={<Contact/>}></Route>
        <Route  path="/Register" element={<Register/>}></Route>
+       <Route  path="/AdminRegister" element={<AdminRegister/>}></Route>
+         <Route element={<ProtectedRoute />}>
+       <Route  path="/Dashboard" element={<Dashboard/>}></Route>
        <Route  path="/FindPaper" element={<FindPaper/>}></Route>
          <Route  path="/PostPaper" element={<PostPaper/>}></Route>
-       <Route  path="/AdminRegister" element={<AdminRegister/>}></Route>
        <Route path="/paper/:id" element={<PaperViewer />} />
+        </Route>
+        <Route  path="/About-us" element={<About/>}></Route>
+      <Route  path="/Contact-us" element={<Contact/>}></Route>
       
     </Routes>
        <Footer/>

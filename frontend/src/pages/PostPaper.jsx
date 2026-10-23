@@ -50,20 +50,22 @@ const availableSubjects = subjectsByBranchSemester[branch]?.[semester] || [];
     const formData = new FormData(e.target);
     const token = localStorage.getItem("token");
 
-    axios.post("https://engipa-1.onrender.com/upload-paper", formData, {
-      headers: {
-        Authorization: `Bearer ${token}`
-        //  Do not set Content-Type manually, Axios handles it
-      }
-    })
-    .then((res) => {
-      console.log(res);
-      alert("Paper uploaded successfully");
-    })
-    .catch((err) => {
-      console.error(err);
-      alert("Upload failed");
-    });
+   
+axios.post("https://engipa-1.onrender.com/upload-paper", formData, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+    // Do not set Content-Type manually, Axios handles it
+  },
+})
+  .then((res) => {
+    console.log(res);
+    alert("Paper uploaded successfully");
+  })
+  .catch((err) => {
+    console.error(err);
+    alert("Upload failed");
+  });
+
   };
 
   return (
