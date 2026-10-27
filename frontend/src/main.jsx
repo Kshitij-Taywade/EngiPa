@@ -13,6 +13,7 @@ import './components/Home/PostPaper.css';
 import './components/Home/About.css';
 import './components/Home/PaperViewer.css';
 import './components/Home/Dashboard.css';
+import './components/Home/NumericalAbility.css';
 
 import { store } from '/src/components/redux/store.js';
 import App from './App.jsx';

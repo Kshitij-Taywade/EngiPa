@@ -1,119 +1,125 @@
 .dashboard {
-    padding: 35px;
-    min-height: 100vh;
-    background: #f5f7fb;
-    font-family: Arial, sans-serif;
-    color: #172033;
+  padding: 35px;
+  min-height: 100vh;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+  color: #172033;
+}
+
+.intro {
+  width: 100%;
+  height: 25px;
+  border: 1px solid white;
 }
 
 .dashboard h1 {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
-    color: #758198;
-    margin-bottom: 35px;
+  color: #758198;
+  margin-bottom: 35px;
 }
 
 .dashboard-cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
 }
 
 .dashboard-card {
-    padding: 35px;
-    min-height: 270px;
-    border-radius: 16px;
-    color: white;
-    cursor: pointer;
-    transition: 0.25s;
+  padding: 35px;
+  min-height: 270px;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 .dashboard-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px #17203325;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px #17203325;
 }
 
 .paper-card {
-    background: linear-gradient(135deg, #191f29, #343b47);
+  background: linear-gradient(135deg, #191f29, #343b47);
 }
 
 .aptitude-card {
-    background: linear-gradient(135deg, #243e91, #4059cc);
+  background: linear-gradient(135deg, #243e91, #4059cc);
 }
 
 .card-icon {
-    font-size: 38px;
+  font-size: 38px;
 }
 
 .dashboard-card h2 {
-    margin: 18px 0 10px;
+  margin: 18px 0 10px;
 }
 
 .dashboard-card p {
-    line-height: 1.7;
-    max-width: 400px;
+  line-height: 1.7;
+  max-width: 400px;
 }
 
 .explore {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 12px 18px;
-    border-radius: 8px;
-    background: white;
-    color: #243e91;
-    font-weight: bold;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: white;
+  color: #243e91;
+  font-weight: bold;
 }
 
 .module-section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .back-btn {
-    padding: 10px 15px;
-    background: white;
-    border: 1px solid #dce2ed;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 25px;
+  padding: 10px 15px;
+  background: white;
+  border: 1px solid #dce2ed;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 25px;
 }
 
 .module-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .module-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 22px;
-    background: white;
-    border: 1px solid #e0e6f0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e0e6f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .module-card:hover {
-    border-color: #4059cc;
-    background: #f0f4ff;
+  border-color: #4059cc;
+  background: #f0f4ff;
 }
 
 @media (max-width: 650px) {
-    .dashboard {
-        padding: 20px 15px;
-    }
-    .dashboard-cards,
-    .module-list {
-        grid-template-columns: 1fr;
-    }
-    .dashboard-card {
-        min-height: 230px;
-        padding: 25px;
-    }
+  .dashboard {
+    padding: 20px 15px;
+  }
+  .dashboard-cards,
+  .module-list {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-card {
+    min-height: 230px;
+    padding: 25px;
+  }
 }

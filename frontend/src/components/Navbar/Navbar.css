@@ -15,6 +15,8 @@
 
 /* Logo */
 
+/* Logo */
+
 .logo-div {
   height: 100%;
   display: flex;
@@ -25,11 +27,19 @@
   flex-shrink: 0;
 }
 
+.logo-div a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .logo-div img {
   height: 100%;
   width: auto;
-  max-width: 100%;
+  max-width: none;
   object-fit: contain;
+  display: block;
 }
 
 /* Desktop navigation */

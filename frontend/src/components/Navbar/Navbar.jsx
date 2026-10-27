@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -12,30 +12,37 @@ const Navbar = () => {
 
     const user = useSelector((state) => state.user.user);
     const dispatch = useDispatch();
-    const location = useLocation();
-
-    // Automatically log out when the Login page opens
-    useEffect(() => {
-        if (location.pathname.toLowerCase() === "/login") {
-            dispatch(logoutUser());
-            setIsOpen(false);
-        }
-    }, [location.pathname, dispatch]);
+    const navigate = useNavigate();
 
     const isLoggedIn = Boolean(user);
-    const closeMenu = () => setIsOpen(false);
+
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
+    const handleLogout = () => {
+        dispatch(logoutUser());
+        closeMenu();
+        navigate("/");
+    };
 
     return (
         <>
             <div className="Navbar-parent">
+                {/* Logo */}
                 <div className="logo-div">
-                    <img src={logo} alt="EngiPa-logo" />
+                    <Link
+                        to={isLoggedIn ? "/Dashboard" : "/"}
+                        onClick={closeMenu}
+                    >
+                        <img src={logo} alt="EngiPa-logo" />
+                    </Link>
                 </div>
 
                 {/* Desktop navigation */}
                 <div className="links-div">
                     {isLoggedIn && (
-                        <Link to="/" className="nav-links">
+                        <Link to="/Dashboard" className="nav-links">
                             Home
                         </Link>
                     )}
@@ -47,9 +54,21 @@ const Navbar = () => {
                     <Link to="/Contact-us" className="nav-links">
                         Contact Us
                     </Link>
+
+                    {!isLoggedIn && (
+                        <>
+                            <Link to="/Login" className="nav-links">
+                                Login
+                            </Link>
+
+                            <Link to="/Register" className="nav-links">
+                                Register
+                            </Link>
+                        </>
+                    )}
                 </div>
 
-                {/* Profile and mobile menu */}
+                {/* Profile and hamburger */}
                 <div className="navbar-right">
                     {isLoggedIn && (
                         <Link
@@ -84,7 +103,7 @@ const Navbar = () => {
             <div className={`links-div2 ${isOpen ? "open" : ""}`}>
                 {isLoggedIn && (
                     <Link
-                        to="/"
+                        to="/Dashboard"
                         className="nav-links"
                         onClick={closeMenu}
                     >
@@ -108,22 +127,52 @@ const Navbar = () => {
                     Contact Us
                 </Link>
 
+                {!isLoggedIn && (
+                    <>
+                        <Link
+                            to="/Login"
+                            className="nav-links"
+                            onClick={closeMenu}
+                        >
+                            Login
+                        </Link>
+
+                        <Link
+                            to="/Register"
+                            className="nav-links"
+                            onClick={closeMenu}
+                        >
+                            Register
+                        </Link>
+                    </>
+                )}
+
                 {isLoggedIn && (
-                    <Link
-                        to="/Dashboard"
-                        className="nav-links mobile-profile-link"
-                        onClick={closeMenu}
-                    >
-                        <img
-                            src={
-                                user?.profilePicture ||
-                                "/default-avatar.png"
-                            }
-                            alt="Profile"
-                            className="navbar-profile-picture"
-                        />
-                        <span>Profile</span>
-                    </Link>
+                    <>
+                        <Link
+                            to="/Dashboard"
+                            className="nav-links mobile-profile-link"
+                            onClick={closeMenu}
+                        >
+                            <img
+                                src={
+                                    user?.profilePicture ||
+                                    "/default-avatar.png"
+                                }
+                                alt="Profile"
+                                className="navbar-profile-picture"
+                            />
+                            <span>Profile</span>
+                        </Link>
+
+                        <button
+                            type="button"
+                            className="nav-links"
+                            onClick={handleLogout}
+                        >
+                            Logout
+                        </button>
+                    </>
                 )}
             </div>
         </>

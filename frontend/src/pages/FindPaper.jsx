@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const FindPaper = () => {
+const navigate = useNavigate();
+  
   const [posts, setPosts] = useState([]);
   const [department, setDepartment] = useState('');
   const [year, setYear] = useState('');
@@ -62,6 +65,12 @@ const availableSubjects =
   return (
     <div className="FindPaper-parent">
       <section className="find-paper-section">
+         <button type="button" className="back-btn"
+              onClick={() =>  navigate("/Dashboard")}
+                    >
+                        ← Back to Dashboard
+                    </button> 
+
         <h1>Find Papers</h1>
         <form className="find-paper-form" onSubmit={handleSubmit}>
           <div className="form-row">

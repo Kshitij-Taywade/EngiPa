@@ -1,27 +1,37 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setUser, logoutUser } from "../redux/userSlice";
+import { setUser } from "../redux/userSlice";
 
 const MainHome = () => {
-    const [Value, setValue] = useState({});
+    const [Value, setValue] = useState({
+        role: "",
+        enrollment: "",
+        password: "",
+    });
+
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // Clear the previous session when the login page opens
-    useEffect(() => {
-        dispatch(logoutUser());
-    }, [dispatch]);
-
     const Change = (e) => {
         const { name, value } = e.target;
-        setValue({ ...Value, [name]: value });
+
+        setValue((previousValue) => ({
+            ...previousValue,
+            [name]: value,
+        }));
     };
 
     const Submit = async (e) => {
         e.preventDefault();
+
+        if (loading) return;
+
+        setLoading(true);
 
         try {
             const payload = {
@@ -35,33 +45,33 @@ const MainHome = () => {
                 payload.enrollment = Value.enrollment;
             }
 
-            const response = await axios.post(
-                "https://engipa-1.onrender.com/login",
-                payload
-            );
+           const response = await axios.post(
+    "https://engipa-1.onrender.com/login",
+    payload
+);
+
+            const userData = {
+                id: response.data.id,
+                role: response.data.role,
+                name: response.data.name || "Student",
+                email: response.data.email || "",
+                profilePicture:
+                    response.data.profilePicture || "/default-avatar.png",
+            };
 
             localStorage.setItem("id", response.data.id);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("role", response.data.role);
 
-            dispatch(
-                setUser({
-                    id: response.data.id,
-                    role: response.data.role,
-                    name: response.data.name || "Student",
-                    email: response.data.email || "",
-                    profilePicture: "/default-avatar.png",
-                })
-            );
+            dispatch(setUser(userData));
 
-            if (response.data.role === "admin") {
-                navigate("/PostPaper");
-            } else {
-                navigate("/Dashboard");
-            }
-        } catch (e) {
-            alert(e.response?.data?.message || "Login failed");
-            console.error(e.response?.data || e.message);
+            // Redirect after successful login
+            navigate("/Dashboard", { replace: true });
+        } catch (error) {
+            alert(error.response?.data?.message || "Login failed");
+            console.error(error.response?.data || error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -71,7 +81,7 @@ const MainHome = () => {
                 <div className="img-div">
                     <img
                         src="https://ik.imagekit.io/9ntvk0xhp/EngiPa%20main%20page%20image.png"
-                        alt="Banner"
+                        alt="EngiPa banner"
                     />
                 </div>
             </div>
@@ -84,7 +94,7 @@ const MainHome = () => {
                         <select
                             required
                             name="role"
-                            value={Value.role || ""}
+                            value={Value.role}
                             onChange={Change}
                         >
                             <option value="" disabled>
@@ -96,11 +106,15 @@ const MainHome = () => {
 
                         <input
                             type="text"
-                            placeholder="Enrollment"
+                            placeholder={
+                                Value.role === "admin"
+                                    ? "College ID"
+                                    : "Enrollment"
+                            }
                             id="loginUsername"
                             name="enrollment"
                             required
-                            value={Value.enrollment || ""}
+                            value={Value.enrollment}
                             onChange={Change}
                         />
 
@@ -110,11 +124,13 @@ const MainHome = () => {
                             id="loginPassword"
                             name="password"
                             required
-                            value={Value.password || ""}
+                            value={Value.password}
                             onChange={Change}
                         />
 
-                        <button type="submit">Login</button>
+                        <button type="submit" disabled={loading}>
+                            {loading ? "Logging in..." : "Login"}
+                        </button>
                     </form>
 
                     <div className="login-div-register-forgot">
