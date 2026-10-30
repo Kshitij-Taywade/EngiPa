@@ -180,6 +180,30 @@ router.post("/upload-paper", authenticateToken, upload.single("file"),
                     message: "No file uploaded",
                 });
             }
+
+            const {
+                subject,
+                semester,
+                year,
+                paper_type,
+                department
+            } = req.body;
+
+            // Check whether the paper already exists
+            const existingPaper = await paperModel.findOne({
+                subject,
+                semester: Number(semester),
+                year: Number(year),
+                paper_type,
+                department
+            });
+
+            if (existingPaper) {
+                return res.status(409).json({
+                    message: "This paper is already available."
+                });
+            }
+
             // Upload to ImageKit
             const result = await uploadFile(req.file.buffer);
             // Save to MongoDB
@@ -220,6 +244,11 @@ router.get("/get-paper", async(req, res) => {
         if (paper_type) query.paper_type = paper_type;
 
         const papers = await paperModel.find(query);
+        if (papers.length === 0) {
+            return res.status(404).json({
+                message: "Paper is not available."
+            });
+        }
 
         res.json({ posts: papers });
     } catch (err) {
