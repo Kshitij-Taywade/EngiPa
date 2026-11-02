@@ -28,7 +28,7 @@ const PostPaper = () => {
         EXTC: {
             3: [
                 "Applied Mathematics III",
-                "Electronic Devises & Circuits",
+                "Electronic Devices & Circuits",
                 "Digital System Design",
                 "Electromagnetic Waves",
             ],
