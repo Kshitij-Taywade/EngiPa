@@ -14,6 +14,7 @@ import './components/Home/About.css';
 import './components/Home/PaperViewer.css';
 import './components/Home/Dashboard.css';
 import './components/Home/NumericalAbility.css';
+import './components/Home/AdminDashboard.css';
 
 import { store } from '/src/components/redux/store.js';
 import App from './App.jsx';
