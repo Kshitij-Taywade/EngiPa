@@ -4,7 +4,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "./redux/userSlice";
 
-const SESSION_DURATION = 24 * 60 * 60 * 1000;
+const SESSION_DURATION = 3 * 60 * 60 * 1000;
 
 const ProtectedRoute = () => {
     const user = useSelector((state) => state.user.user);
